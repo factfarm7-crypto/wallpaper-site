@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UltraHD Wallpapers | 4K Download for Mobile & PC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #0f4c75;
+            --highlight: #00b7c2;
+            --light: #f1f1f1;
+            --dark: #0d1117;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: rgba(13, 17, 23, 0.95);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--highlight);
+        }
+        
+        .logo i {
+            font-size: 2.2rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            font-size: 1.1rem;
+        }
+        
+        nav a:hover {
+            color: var(--highlight);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(rgba(10, 15, 25, 0.9), rgba(10, 15, 25, 0.9)), 
+                        url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--highlight), #4cc9f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: #ccc;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background-color: var(--highlight);
+            color: var(--dark);
+        }
+        
+        .btn-primary:hover {
+            background-color: #00a3ad;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 183, 194, 0.3);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--light);
+            border: 2px solid var(--highlight);
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(0, 183, 194, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        /* Wallpapers Section */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: var(--highlight);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .wallpapers {
+            padding: 100px 0;
+        }
+        
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+        
+        .tab-btn {
+            padding: 12px 25px;
+            background-color: var(--secondary);
+            color: var(--light);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .tab-btn.active, .tab-btn:hover {
+            background-color: var(--highlight);
+            color: var(--dark);
+        }
+        
+        .wallpapers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .wallpaper-card {
+            background-color: var(--primary);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .wallpaper-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+        
+        .wallpaper-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .wallpaper-info {
+            padding: 20px;
+        }
+        
+        .wallpaper-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .wallpaper-title span {
+            font-size: 0.9rem;
+            background-color: var(--accent);
+            padding: 3px 10px;
+            border-radius: 15px;
+        }
+        
+        .wallpaper-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+        
+        .action-btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .preview-btn {
+            background-color: var(--secondary);
+            color: var(--light);
+        }
+        
+        .download-btn {
+            background-color: var(--highlight);
+            color: var(--dark);
+        }
+        
+        .action-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background-color: var(--primary);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--highlight);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            padding: 70px 0 30px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+            padding: 0 20px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--highlight);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--highlight);
+        }
+        
+        .copyright {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .wallpapers-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--secondary);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                gap: 0;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s;
+                z-index: 999;
+            }
+            
+            nav ul.show {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            nav ul li {
+                width: 100%;
+                text-align: center;
+                padding: 15px 0;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+                padding: 0 15px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                padding: 0 20px;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .wallpapers-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-mountain"></i>
+                <span>UltraHD Wallpapers</span>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#wallpapers">Wallpapers</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#download">Download</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Stunning 4K Wallpapers for Mobile & PC</h1>
+            <p>Download high-quality, ultra HD wallpapers for free. Optimized for all devices including smartphones, tablets, and desktop computers. New wallpapers added daily.</p>
+            <div class="cta-buttons">
+                <a href="#wallpapers" class="btn btn-primary">Explore Wallpapers</a>
+                <a href="#download" class="btn btn-secondary">How to Download</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wallpapers Section -->
+    <section class="wallpapers" id="wallpapers">
+        <div class="container">
+            <h2 class="section-title">Popular 4K Wallpapers</h2>
+            
+            <div class="category-tabs">
+                <button class="tab-btn active" data-category="all">All</button>
+                <button class="tab-btn" data-category="nature">Nature</button>
+                <button class="tab-btn" data-category="abstract">Abstract</button>
+                <button class="tab-btn" data-category="space">Space</button>
+                <button class="tab-btn" data-category="city">City</button>
+                <button class="tab-btn" data-category="minimal">Minimal</button>
+            </div>
+            
+            <div class="wallpapers-grid" id="wallpapersContainer">
+                <!-- Wallpaper cards will be dynamically generated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Our Wallpapers</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-expand-alt"></i>
+                    </div>
+                    <h3>True 4K Resolution</h3>
+                    <p>All wallpapers are available in genuine 4K Ultra HD resolution (3840x2160) for the best visual experience on any device.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Optimized</h3>
+                    <p>Every wallpaper is also optimized for mobile devices with appropriate cropping and resolution adjustments.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cloud-download-alt"></i>
+                    </div>
+                    <h3>Free & Easy Download</h3>
+                    <p>Download any wallpaper completely free with just one click. No registration or payment required.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>UltraHD Wallpapers</h3>
+                    <p>Your source for high-quality 4K wallpapers for desktop and mobile devices. Updated daily with new stunning visuals.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Nature & Landscapes</a></li>
+                        <li><a href="#">Abstract & Art</a></li>
+                        <li><a href="#">Space & Galaxy</a></li>
+                        <li><a href="#">City & Architecture</a></li>
+                        <li><a href="#">Minimal & Simple</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#wallpapers">Wallpapers</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#download">How to Download</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 UltraHD Wallpapers. All wallpapers are free to download for personal use.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('show') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Wallpaper data
+        const wallpapers = [
+            {
+                id: 1,
+                title: "Mountain Sunrise",
+                category: "nature",
+                resolution: "4K",
+                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                id: 2,
+                title: "Abstract Waves",
+                category: "abstract",
+                resolution: "4K",
+                image: "https://images.unsplash.com/photo-1550684376-efcbd6e3f031?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                id: 3,
+                title: "Galaxy Nebula",
+                category: "space",
+                resolution: "4K",
+                image: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                id: 4,
+                title: "City Skyline",
+                category: "city",
+                resolution: "4K",
+                image: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                id: 5,
+                title: "Minimal Geometry",
+                category: "minimal",
+                resolution: "4K",
+                image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w-1350&q=80"
+            },
+            {
+                id: 6,
+                title: "Forest Pathway",
+                category: "nature",
+                resolution: "4K",
+                image: "https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                id: 7,
+                title: "Colorful Abstract",
+                category: "abstract",
+                resolution: "4K",
+                image: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                id: 8,
+                title: "Planet Surface",
+                category: "space",
+                resolution: "4K",
+                image: "https://images.unsplash.com/photo-1462332420958-a05d1e002413?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+            }
+        ];
+        
+        // Function to render wallpapers
+        function renderWallpapers(category = 'all') {
+            const container = document.getElementById('wallpapersContainer');
+            container.innerHTML = '';
+            
+            const filteredWallpapers = category === 'all' 
+                ? wallpapers 
+                : wallpapers.filter(wp => wp.category === category);
+            
+            filteredWallpapers.forEach(wp => {
+                const card = document.createElement('div');
+                card.className = 'wallpaper-card';
+                card.innerHTML = `
+                    <img src="${wp.image}" alt="${wp.title}" class="wallpaper-img">
+                    <div class="wallpaper-info">
+                        <div class="wallpaper-title">
+                            <span>${wp.title}</span>
+                            <span>${wp.resolution}</span>
+                        </div>
+                        <p>Perfect for both desktop and mobile screens. Download in true 4K quality.</p>
+                        <div class="wallpaper-actions">
+                            <button class="action-btn preview-btn" onclick="previewWallpaper(${wp.id})">
+                                <i class="fas fa-eye"></i> Preview
+                            </button>
+                            <button class="action-btn download-btn" onclick="downloadWallpaper(${wp.id})">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+        
+        // Tab functionality
+        document.querySelectorAll('.tab-btn').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                document.querySelectorAll('.tab-btn').forEach(t => {
+                    t.classList.remove('active');
+                });
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Render wallpapers for selected category
+                const category = tab.getAttribute('data-category');
+                renderWallpapers(category);
+            });
+        });
+        
+        // Download wallpaper function
+        function downloadWallpaper(id) {
+            const wallpaper = wallpapers.find(wp => wp.id === id);
+            alert(`Downloading "${wallpaper.title}" in 4K resolution...\n\nFor this demo, the download would start automatically. In a real application, this would initiate the download of the full-resolution wallpaper.`);
+            
+            // In a real application, this would trigger the actual download
+            // window.location.href = `/download/${id}`;
+        }
+        
+        // Preview wallpaper function
+        function previewWallpaper(id) {
+            const wallpaper = wallpapers.find(wp => wp.id === id);
+            alert(`Opening full-screen preview of "${wallpaper.title}"...\n\nIn a real application, this would open a lightbox or modal with the full-resolution image.`);
+            
+            // In a real application, this would open a modal with the full image
+            // openModal(wallpaper.image);
+        }
+        
+        // Initialize with all wallpapers
+        renderWallpapers();
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
